@@ -89,7 +89,7 @@
               <span class="author-block"><sup>2</sup>KAIST InnoCORE LLM</span>
             </div>
 
-            <div class="publication-links" style="display: flex; justify-content: center; gap: 0.75rem; margin-top: 1rem;">
+            <div class="publication-links" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem; margin-top: 1rem;">
               <button class="button is-normal is-rounded is-dark" type="button" disabled aria-label="Paper coming soon" title="Camera-ready paper coming soon">
                 <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M8 13h8M8 17h6"/></svg></span>
                 <span>Paper</span>
@@ -98,6 +98,10 @@
                 <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.4-4-1.4-.5-1.4-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0C17.3 5.1 18.3 5.4 18.3 5.4c.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.2c0 .3.2.7.8.6A12 12 0 0 0 12 .3Z"/></svg></span>
                 <span>Code</span>
               </button>
+              <a class="button is-normal is-rounded is-dark" href="#bibtex">
+                <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4H6a2 2 0 0 0-2 2v3c0 2-2 3-2 3s2 1 2 3v3a2 2 0 0 0 2 2h2M16 4h2a2 2 0 0 1 2 2v3c0 2 2 3 2 3s-2 1-2 3v3a2 2 0 0 1-2 2h-2"/></svg></span>
+                <span>BibTeX</span>
+              </a>
             </div>
 
         </div>
@@ -141,7 +145,7 @@
           </div>
           <div class="demo-carousel">
             <button id="demo-prev" class="demo-arrow" type="button" aria-label="Previous demo" aria-controls="demo-video"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m15 6-6 6 6 6"/></svg></button>
-            <video id="demo-video" class="demo-video" controls playsinline muted loop preload="metadata" aria-label="RadarMAE detection demo: Normal">
+            <video id="demo-video" class="demo-video" controls autoplay playsinline muted loop preload="metadata" aria-label="RadarMAE detection demo: Normal">
               <source src="static/videos/weather_normal_seq14.mp4" type="video/mp4">
               Your browser does not support embedded video. <a href="static/videos/weather_normal_seq14.mp4" id="demo-video-fallback">Download the video</a>.
             </video>
@@ -223,6 +227,17 @@
         <div class="content"><h3>Axial Tokenization</h3><p>Axial tokenization achieves higher detection accuracy with 142 tokens and 30.14 total GFLOPs, compared with 448 tokens and 75.47 total GFLOPs for 8 × 8 patches.</p></div>
 <div class="table-container"><table class="table is-fullwidth results-table"><caption>Tokenization ablation with identical MSE loss, random masking, and 500 pre-training epochs. GFLOPs are measured during pre-training.</caption><thead><tr><th scope="col">Tokenization</th><th scope="col">Tokens</th><th scope="col">BEV AP@0.3 ↑</th><th scope="col">Encoder GFLOPs ↓</th><th scope="col">Total GFLOPs ↓</th></tr></thead><tbody><tr><th scope="row">16 × 16</th><td>112</td><td>49.46</td><td>17.67</td><td>23.97</td></tr><tr><th scope="row">8 × 8</th><td>448</td><td>54.91</td><td>48.51</td><td>75.47</td></tr><tr><th scope="row">4 × 16</th><td>448</td><td>55.23</td><td>50.04</td><td>77.93</td></tr><tr><th scope="row">16 × 4</th><td>448</td><td>54.59</td><td>47.65</td><td>74.15</td></tr><tr class="ours"><th scope="row">Axial</th><td>142</td><td>57.46</td><td>22.22</td><td>30.14</td></tr></tbody></table></div>
 
+      </div>
+    </section>
+    <section id="bibtex" class="section" aria-labelledby="bibtex-heading">
+      <div class="container is-max-desktop">
+        <h2 id="bibtex-heading" class="title is-3 has-text-centered">BibTeX</h2>
+        <pre><code>@inproceedings{kim2026radarmae,
+  title     = {{RadarMAE}: Injecting Physical Inductive Biases into Masked Autoencoders for Advanced Radar Object Detection},
+  author    = {Kim, EunChan and Shin, JeongWan and Choi, JaeHo},
+  booktitle = {Advances in Neural Information Processing Systems},
+  year      = {2026}
+}</code></pre>
       </div>
     </section>
   </main>

@@ -8,7 +8,6 @@ let demoIndex = 0;
 function changeDemo(direction) {
   demoIndex = (demoIndex + direction + demoClips.length) % demoClips.length;
   const clip = demoClips[demoIndex];
-  const resumePlayback = !demoVideo.paused && !demoVideo.ended;
   demoVideo.pause();
   demoError.hidden = true;
   document.getElementById('demo-clip-title').textContent = clip.title;
@@ -21,7 +20,7 @@ function changeDemo(direction) {
   demoVideo.setAttribute('aria-label', `RadarMAE detection demo: ${clip.title}`);
   demoVideo.src = clip.src;
   demoVideo.load();
-  if (resumePlayback) demoVideo.play().catch(() => {});
+  demoVideo.play().catch(() => {});
 }
 
 document.getElementById('demo-prev').addEventListener('click', () => changeDemo(-1));
