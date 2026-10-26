@@ -834,3 +834,19 @@ a:focus {
   .demo-arrow { width: 36px; height: 44px; }
   .demo-summary { margin-left: 0; margin-right: 0; }
 }
+
+/* Brief model overview below the pipeline */
+.pipeline-steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.75rem;
+  list-style: none;
+  margin: 2rem 0 0;
+  padding: 0;
+}
+.pipeline-steps li { border-top: 2px solid #0072ce; padding-top: 1rem; }
+.pipeline-steps h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.65rem; }
+.pipeline-steps p { color: var(--text-secondary); line-height: 1.7; }
+@media screen and (max-width: 768px) {
+  .pipeline-steps { grid-template-columns: 1fr; gap: 1.25rem; }
+}

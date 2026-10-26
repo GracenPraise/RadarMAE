@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>RadarMAE: Injecting Physical Inductive Biases into Masked Autoencoders for Advanced Radar Object Detection</title>
-  <meta name="description" content="RadarMAE incorporates axial tokenization and physical distribution-based reconstruction losses for radar representation learning and object detection.">
+  <meta name="description" content="RadarMAE explores radar-aware masked pre-training with axial tokenization for representation learning and object detection.">
   <meta name="author" content="EunChan Kim, JeongWan Shin, JaeHo Choi">
   <meta name="citation_title" content="RadarMAE: Injecting Physical Inductive Biases into Masked Autoencoders for Advanced Radar Object Detection">
   <meta name="citation_author" content="Kim, EunChan">
@@ -12,7 +12,7 @@
   <meta name="citation_author" content="Choi, JaeHo">
   <meta property="og:type" content="article">
   <meta property="og:title" content="RadarMAE: Injecting Physical Inductive Biases into Masked Autoencoders for Advanced Radar Object Detection">
-  <meta property="og:description" content="RadarMAE incorporates axial tokenization and physical distribution-based reconstruction losses for radar representation learning and object detection.">
+  <meta property="og:description" content="RadarMAE explores radar-aware masked pre-training with axial tokenization for representation learning and object detection.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -23,7 +23,7 @@
   "@context": "https://schema.org",
   "@type": "ScholarlyArticle",
   "headline": "RadarMAE: Injecting Physical Inductive Biases into Masked Autoencoders for Advanced Radar Object Detection",
-  "description": "RadarMAE incorporates axial tokenization and physical distribution-based reconstruction losses for radar representation learning and object detection.",
+  "description": "RadarMAE explores radar-aware masked pre-training with axial tokenization for representation learning and object detection.",
   "author": [
     {
       "@type": "Person",
@@ -90,14 +90,14 @@
             </div>
 
             <div class="publication-links" style="display: flex; justify-content: center; gap: 0.75rem; margin-top: 1rem;">
-              <a class="button is-normal is-rounded is-dark" href="static/pdfs/RadarMAE.pdf" target="_blank" rel="noopener">
+              <button class="button is-normal is-rounded is-dark" type="button" disabled aria-label="Paper coming soon" title="Camera-ready paper coming soon">
                 <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M8 13h8M8 17h6"/></svg></span>
                 <span>Paper</span>
-              </a>
-              <a class="button is-normal is-rounded is-dark" href="https://github.com/GracenPraise/RadarMAE" target="_blank" rel="noopener noreferrer">
+              </button>
+              <button class="button is-normal is-rounded is-dark" type="button" disabled aria-label="Code coming soon" title="Code coming soon">
                 <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.4-4-1.4-.5-1.4-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0C17.3 5.1 18.3 5.4 18.3 5.4c.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.2c0 .3.2.7.8.6A12 12 0 0 0 12 .3Z"/></svg></span>
                 <span>Code</span>
-              </a>
+              </button>
             </div>
 
         </div>
@@ -113,10 +113,47 @@
                  fetchpriority="high" style="display: block; width: 100%; height: auto;">
           </a>
           <figcaption class="content has-text-centered" style="margin-top: 1.5rem;">
-            <strong>RadarMAE pre-training pipeline.</strong> Axial tokenization preserves the structure of range-azimuth heatmaps,
-            while physical distribution-based losses capture range multipath and azimuth sidelobe signatures.
+            <strong>RadarMAE pre-training pipeline.</strong> Axial tokenization is designed to retain extended structures in range-azimuth heatmaps.
+            The reconstruction objective also considers axis-specific signal statistics.
           </figcaption>
         </figure>
+        <ol class="pipeline-steps">
+          <li>
+            <h3>Axial Tokenization</h3>
+            <p>Convert a range-azimuth heatmap into range and azimuth tokens, accounting for the distinct structure of each axis.</p>
+          </li>
+          <li>
+            <h3>Masked Pre-training</h3>
+            <p>Mask a subset of tokens and reconstruct the heatmap to learn from unlabeled radar data. The reconstruction objective also considers axis-specific signal statistics.</p>
+          </li>
+          <li>
+            <h3>Object Detection</h3>
+            <p>Discard the pre-training decoder and fine-tune the encoder with a detection head for downstream radar object detection.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+    <section class="section" aria-labelledby="demo-heading">
+      <div class="container is-max-desktop">
+        <h2 id="demo-heading" class="title is-3 has-text-centered">Demo</h2>
+        <p class="has-text-centered demo-intro">Radar detection across normal conditions, sleet, heavy snow, fog, and nighttime rain.</p>
+        <div class="demo-browser" role="region" aria-roledescription="carousel" aria-label="Radar detection demos">
+          <div class="demo-summary" aria-live="polite" aria-atomic="true">
+            <h3 id="demo-clip-title" class="is-size-5 has-text-weight-semibold">Normal</h3>
+            <p class="demo-context"><span id="demo-road">Urban</span> · <span id="demo-time">Day</span> · Sequence <span id="demo-sequence">14</span></p>
+            <span id="demo-position" class="demo-position">1 / 6</span>
+          </div>
+          <div class="demo-carousel">
+            <button id="demo-prev" class="demo-arrow" type="button" aria-label="Previous demo" aria-controls="demo-video"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m15 6-6 6 6 6"/></svg></button>
+            <video id="demo-video" class="demo-video" controls playsinline muted loop preload="metadata" aria-label="RadarMAE detection demo: Normal">
+              <source src="static/videos/weather_normal_seq14.mp4" type="video/mp4">
+              Your browser does not support embedded video. <a href="static/videos/weather_normal_seq14.mp4" id="demo-video-fallback">Download the video</a>.
+            </video>
+            <button id="demo-next" class="demo-arrow" type="button" aria-label="Next demo" aria-controls="demo-video"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button>
+          </div>
+          <p id="demo-video-error" class="demo-note" role="status" hidden>Unable to load this video. <a id="demo-video-download" href="static/videos/weather_normal_seq14.mp4">Open the video directly</a>.</p>
+        </div>
+        <script type="application/json" id="demo-clips">[{"title": "Normal", "sequence": "14", "road": "Urban", "time": "Day", "src": "static/videos/weather_normal_seq14.mp4"}, {"title": "Sleet", "sequence": "53", "road": "Highway", "time": "Day", "src": "static/videos/weather_sleet_seq53.mp4"}, {"title": "Heavy snow", "sequence": "54", "road": "Urban", "time": "Day", "src": "static/videos/weather_heavysnow_seq54.mp4"}, {"title": "Fog", "sequence": "45", "road": "Shoulder", "time": "Day", "src": "static/videos/weather_fog_seq45.mp4"}, {"title": "Rain at night", "sequence": "23", "road": "Urban", "time": "Night", "src": "static/videos/weather_rain_seq23.mp4"}, {"title": "Mountain fog", "sequence": "40", "road": "Mountain", "time": "Day", "src": "static/videos/road_mountain_seq40.mp4"}]</script>
       </div>
     </section>
     <section class="section" aria-labelledby="motivation-heading">
@@ -163,36 +200,8 @@
         <div class="motivation-step content">
 
           <h3>Can image-oriented MAEs fully exploit radar-specific structures?</h3>
-          <p>Conventional square patches do not explicitly account for the distinct range–azimuth axes and can fragment extended response patterns. A standard pixel-wise MSE objective can also smooth out multipath tails and sidelobe peaks that carry useful information about the scene.</p>
+          <p>Conventional square patches do not explicitly account for the distinct range–azimuth axes and can fragment extended response patterns. This motivates exploring tokenization and reconstruction strategies suited to radar heatmaps.</p>
         </div>
-        <div class="motivation-step content">
-
-          <h3>Physics-aware masked radar representation learning.</h3>
-          <p>RadarMAE combines axial tokenization with axis-specific physical distribution losses. By preserving continuous response structures and modeling range multipath and azimuth sidelobes, it learns representations from unlabeled radar heatmaps that transfer to object detection.</p>
-        </div>
-      </div>
-    </section>
-    <section class="section" aria-labelledby="demo-heading">
-      <div class="container is-max-desktop">
-        <h2 id="demo-heading" class="title is-3 has-text-centered">Demo</h2>
-        <p class="has-text-centered demo-intro">Radar detection across normal conditions, sleet, heavy snow, fog, and nighttime rain.</p>
-        <div class="demo-browser" role="region" aria-roledescription="carousel" aria-label="Radar detection demos">
-          <div class="demo-summary" aria-live="polite" aria-atomic="true">
-            <h3 id="demo-clip-title" class="is-size-5 has-text-weight-semibold">Normal</h3>
-            <p class="demo-context"><span id="demo-road">Urban</span> · <span id="demo-time">Day</span> · Sequence <span id="demo-sequence">14</span></p>
-            <span id="demo-position" class="demo-position">1 / 6</span>
-          </div>
-          <div class="demo-carousel">
-            <button id="demo-prev" class="demo-arrow" type="button" aria-label="Previous demo" aria-controls="demo-video"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m15 6-6 6 6 6"/></svg></button>
-            <video id="demo-video" class="demo-video" controls playsinline muted loop preload="metadata" aria-label="RadarMAE detection demo: Normal">
-              <source src="static/videos/weather_normal_seq14.mp4" type="video/mp4">
-              Your browser does not support embedded video. <a href="static/videos/weather_normal_seq14.mp4" id="demo-video-fallback">Download the video</a>.
-            </video>
-            <button id="demo-next" class="demo-arrow" type="button" aria-label="Next demo" aria-controls="demo-video"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button>
-          </div>
-          <p id="demo-video-error" class="demo-note" role="status" hidden>Unable to load this video. <a id="demo-video-download" href="static/videos/weather_normal_seq14.mp4">Open the video directly</a>.</p>
-        </div>
-        <script type="application/json" id="demo-clips">[{"title": "Normal", "sequence": "14", "road": "Urban", "time": "Day", "src": "static/videos/weather_normal_seq14.mp4"}, {"title": "Sleet", "sequence": "53", "road": "Highway", "time": "Day", "src": "static/videos/weather_sleet_seq53.mp4"}, {"title": "Heavy snow", "sequence": "54", "road": "Urban", "time": "Day", "src": "static/videos/weather_heavysnow_seq54.mp4"}, {"title": "Fog", "sequence": "45", "road": "Shoulder", "time": "Day", "src": "static/videos/weather_fog_seq45.mp4"}, {"title": "Rain at night", "sequence": "23", "road": "Urban", "time": "Night", "src": "static/videos/weather_rain_seq23.mp4"}, {"title": "Mountain fog", "sequence": "40", "road": "Mountain", "time": "Day", "src": "static/videos/road_mountain_seq40.mp4"}]</script>
       </div>
     </section>
     <section class="section" aria-labelledby="results-heading">
@@ -212,7 +221,7 @@
           </figure>
           <div class="content">
             <p>RadarMAE outperforms both training from scratch and standard MAE across all evaluated labeled training-data ratios, from 30% to 100%.</p>
-            <p>By incorporating radar-specific physical priors, RadarMAE maintains a consistent advantage even as the amount of labeled training data decreases.</p>
+            <p>In these experiments, RadarMAE maintains an advantage even as the amount of labeled training data decreases.</p>
           </div>
         </div>
         <div class="content"><h3>Axial Tokenization</h3><p>Axial tokenization achieves higher detection accuracy with 142 tokens and 30.14 total GFLOPs, compared with 448 tokens and 75.47 total GFLOPs for 8 × 8 patches.</p></div>
