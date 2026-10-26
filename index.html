@@ -175,44 +175,24 @@
     <section class="section" aria-labelledby="demo-heading">
       <div class="container is-max-desktop">
         <h2 id="demo-heading" class="title is-3 has-text-centered">Demo</h2>
-        <p class="has-text-centered demo-intro">Explore detection examples across eight road types and seven weather conditions.</p>
-        <div class="demo-browser">
-          <fieldset class="demo-filter"><legend>Weather</legend><div class="demo-options">
-            <button type="button" class="demo-option" aria-pressed="false" aria-controls="demo-video" data-src="static/videos/weather_normal_seq14.mp4" data-title="Weather · Normal" data-sequence="14" data-road="Urban" data-time="Day" data-weather="Normal">Normal</button>
-            <button type="button" class="demo-option" aria-pressed="false" aria-controls="demo-video" data-src="static/videos/weather_overcast_seq22.mp4" data-title="Weather · Overcast" data-sequence="22" data-road="Urban" data-time="Night" data-weather="Overcast">Overcast</button>
-            <button type="button" class="demo-option" aria-pressed="false" aria-controls="demo-video" data-src="static/videos/weather_fog_seq45.mp4" data-title="Weather · Fog" data-sequence="45" data-road="Shoulder" data-time="Day" data-weather="Fog">Fog</button>
-            <button type="button" class="demo-option" aria-pressed="false" aria-controls="demo-video" data-src="static/videos/weather_rain_seq23.mp4" data-title="Weather · Rain" data-sequence="23" data-road="Urban" data-time="Night" data-weather="Rain">Rain</button>
-            <button type="button" class="demo-option" aria-pressed="false" aria-controls="demo-video" data-src="static/videos/weather_sleet_seq53.mp4" data-title="Weather · Sleet" data-sequence="53" data-road="Highway" data-time="Day" data-weather="Sleet">Sleet</button>
-            <button type="button" class="demo-option" aria-pressed="false" aria-controls="demo-video" data-src="static/videos/weather_lightsnow_seq43.mp4" data-title="Weather · Light snow" data-sequence="43" data-road="Urban" data-time="Day" data-weather="Light snow">Light snow</button>
-            <button type="button" class="demo-option" aria-pressed="false" aria-controls="demo-video" data-src="static/videos/weather_heavysnow_seq54.mp4" data-title="Weather · Heavy snow" data-sequence="54" data-road="Urban" data-time="Day" data-weather="Heavy snow">Heavy snow</button>
-          </div></fieldset>
-          <fieldset class="demo-filter"><legend>Road</legend><div class="demo-options">
-            <button type="button" class="demo-option" aria-pressed="true" aria-controls="demo-video" data-src="static/videos/road_urban_seq54.mp4" data-title="Road · Urban" data-sequence="54" data-road="Urban" data-time="Day" data-weather="Heavy snow">Urban</button>
-            <button type="button" class="demo-option" aria-pressed="false" aria-controls="demo-video" data-src="static/videos/road_highway_seq53.mp4" data-title="Road · Highway" data-sequence="53" data-road="Highway" data-time="Day" data-weather="Sleet">Highway</button>
-            <button type="button" class="demo-option" aria-pressed="false" aria-controls="demo-video" data-src="static/videos/road_countryside_seq33.mp4" data-title="Road · Countryside" data-sequence="33" data-road="Countryside" data-time="Day" data-weather="Rain">Countryside</button>
-            <button type="button" class="demo-option" aria-pressed="false" aria-controls="demo-video" data-src="static/videos/road_alleyway_seq21.mp4" data-title="Road · Alleyway" data-sequence="21" data-road="Alleyway" data-time="Night" data-weather="Rain">Alleyway</button>
-            <button type="button" class="demo-option" aria-pressed="false" aria-controls="demo-video" data-src="static/videos/road_parkinglots_seq30.mp4" data-title="Road · Parking lots" data-sequence="30" data-road="Parking lots" data-time="Day" data-weather="Sleet">Parking lots</button>
-            <button type="button" class="demo-option" aria-pressed="false" aria-controls="demo-video" data-src="static/videos/road_shoulder_seq45.mp4" data-title="Road · Shoulder" data-sequence="45" data-road="Shoulder" data-time="Day" data-weather="Fog">Shoulder</button>
-            <button type="button" class="demo-option" aria-pressed="false" aria-controls="demo-video" data-src="static/videos/road_mountain_seq40.mp4" data-title="Road · Mountain" data-sequence="40" data-road="Mountain" data-time="Day" data-weather="Fog">Mountain</button>
-            <button type="button" class="demo-option" aria-pressed="false" aria-controls="demo-video" data-src="static/videos/road_university_seq16.mp4" data-title="Road · University" data-sequence="16" data-road="University" data-time="Day" data-weather="Normal">University</button>
-          </div></fieldset>
+        <p class="has-text-centered demo-intro">Radar detection across normal conditions, sleet, heavy snow, fog, and nighttime rain.</p>
+        <div class="demo-browser" role="region" aria-roledescription="carousel" aria-label="Radar detection demos">
           <div class="demo-summary" aria-live="polite" aria-atomic="true">
-            <h3 id="demo-clip-title" class="is-size-5 has-text-weight-semibold">Road · Urban</h3>
-            <dl class="demo-metrics">
-              <div><dt>Sequence</dt><dd id="demo-sequence">54</dd></div>
-              <div><dt>Road</dt><dd id="demo-road">Urban</dd></div>
-              <div><dt>Time</dt><dd id="demo-time">Day</dd></div>
-              <div><dt>Weather</dt><dd id="demo-weather">Heavy snow</dd></div>
-
-
-            </dl>
+            <h3 id="demo-clip-title" class="is-size-5 has-text-weight-semibold">Sleet</h3>
+            <p class="demo-context"><span id="demo-road">Highway</span> · <span id="demo-time">Day</span> · Sequence <span id="demo-sequence">53</span></p>
+            <span id="demo-position" class="demo-position">1 / 6</span>
           </div>
-          <video id="demo-video" class="demo-video" controls playsinline muted loop preload="metadata" aria-label="RadarMAE detection demo: Road · Urban">
-            <source src="static/videos/road_urban_seq54.mp4" type="video/mp4">
-            Your browser does not support embedded video. <a href="static/videos/road_urban_seq54.mp4" id="demo-video-fallback">Download the video</a>.
-          </video>
-          <p id="demo-video-error" class="demo-note" role="status" hidden>Unable to load this video. <a id="demo-video-download" href="static/videos/road_urban_seq54.mp4">Open the video directly</a>.</p>
+          <div class="demo-carousel">
+            <button id="demo-prev" class="demo-arrow" type="button" aria-label="Previous demo" aria-controls="demo-video"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m15 6-6 6 6 6"/></svg></button>
+            <video id="demo-video" class="demo-video" controls playsinline muted loop preload="metadata" aria-label="RadarMAE detection demo: Sleet">
+              <source src="static/videos/weather_sleet_seq53.mp4" type="video/mp4">
+              Your browser does not support embedded video. <a href="static/videos/weather_sleet_seq53.mp4" id="demo-video-fallback">Download the video</a>.
+            </video>
+            <button id="demo-next" class="demo-arrow" type="button" aria-label="Next demo" aria-controls="demo-video"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button>
+          </div>
+          <p id="demo-video-error" class="demo-note" role="status" hidden>Unable to load this video. <a id="demo-video-download" href="static/videos/weather_sleet_seq53.mp4">Open the video directly</a>.</p>
         </div>
+        <script type="application/json" id="demo-clips">[{"title": "Sleet", "sequence": "53", "road": "Highway", "time": "Day", "src": "static/videos/weather_sleet_seq53.mp4"}, {"title": "Heavy snow", "sequence": "54", "road": "Urban", "time": "Day", "src": "static/videos/weather_heavysnow_seq54.mp4"}, {"title": "Fog", "sequence": "45", "road": "Shoulder", "time": "Day", "src": "static/videos/weather_fog_seq45.mp4"}, {"title": "Normal", "sequence": "14", "road": "Urban", "time": "Day", "src": "static/videos/weather_normal_seq14.mp4"}, {"title": "Rain at night", "sequence": "23", "road": "Urban", "time": "Night", "src": "static/videos/weather_rain_seq23.mp4"}, {"title": "Mountain fog", "sequence": "40", "road": "Mountain", "time": "Day", "src": "static/videos/road_mountain_seq40.mp4"}]</script>
       </div>
     </section>
     <section class="section" aria-labelledby="results-heading">

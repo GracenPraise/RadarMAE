@@ -818,28 +818,19 @@ a:focus {
   .annotation-chart-row { grid-template-columns: 72px minmax(0, 1fr) 45px; gap: 0.6rem; }
 }
 
-/* Demo clip selector */
+/* Adverse-weather demo carousel */
 .demo-intro { color: var(--text-secondary); margin-bottom: 2rem; }
-.demo-filter { border: 0; margin: 0 0 1.25rem; padding: 0; min-width: 0; }
-.demo-filter legend { font-weight: 700; margin-bottom: 0.65rem; }
-.demo-options { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-.demo-option {
-  font: inherit;
-  font-size: 0.9rem;
-  background: white;
-  border: 1px solid var(--border-color);
-  border-radius: 999px;
-  color: var(--text-primary);
-  padding: 0.45rem 0.95rem;
-  cursor: pointer;
-  transition: background 0.15s, border-color 0.15s;
-}
-.demo-option:hover { background: #edf6ff; border-color: #0072ce; }
-.demo-option[aria-pressed="true"] { background: #0072ce; border-color: #0072ce; color: white; }
-.demo-option:focus-visible { outline: 3px solid #0072ce; outline-offset: 3px; }
-.demo-summary { margin: 1.75rem 0 1rem; }
-.demo-metrics { display: flex; flex-wrap: wrap; gap: 1rem 2rem; margin-top: 0.75rem; }
-.demo-metrics dt { font-size: 0.75rem; color: var(--text-secondary); }
-.demo-metrics dd { margin: 0; font-weight: 600; }
-.demo-video { display: block; width: 100%; height: auto; background: #0f172a; border-radius: 8px; }
+.demo-summary { position: relative; margin: 0 3.75rem 1rem; padding-right: 3rem; }
+.demo-context { color: var(--text-secondary); font-size: 0.9rem; margin-top: 0.4rem; }
+.demo-position { position: absolute; top: 0.25rem; right: 0; color: var(--text-secondary); font-size: 0.9rem; font-variant-numeric: tabular-nums; }
+.demo-carousel { display: grid; grid-template-columns: 44px minmax(0, 1fr) 44px; gap: 1rem; align-items: center; }
+.demo-arrow { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--border-color); background: white; color: #0072ce; cursor: pointer; }
+.demo-arrow:hover { background: #edf6ff; border-color: #0072ce; }
+.demo-arrow:focus-visible { outline: 3px solid #0072ce; outline-offset: 3px; }
+.demo-video { display: block; width: 100%; height: auto; min-width: 0; background: #0f172a; border-radius: 8px; }
 .demo-note { font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.75rem; }
+@media screen and (max-width: 480px) {
+  .demo-carousel { grid-template-columns: 36px minmax(0, 1fr) 36px; gap: 0.4rem; }
+  .demo-arrow { width: 36px; height: 44px; }
+  .demo-summary { margin-left: 0; margin-right: 0; }
+}
