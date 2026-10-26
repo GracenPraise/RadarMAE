@@ -29,7 +29,7 @@ html {
 }
 
 body {
-  font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Manrope', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
   color: var(--text-primary);
   line-height: 1.6;
   font-size: 16px;
@@ -109,18 +109,19 @@ body {
 }
 
 .teaser {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Manrope', sans-serif;
 }
 
 
 /* Publication Content Styling */
 .publication-title {
-    font-family: 'Inter', sans-serif !important;
-    font-weight: 800 !important;
+    font-family: 'Manrope', sans-serif !important;
+    font-weight: 700 !important;
     color: var(--text-primary) !important;
     margin-bottom: 2rem !important;
     line-height: 1.1 !important;
 }
+
 
 .publication-banner {
   max-height: 70vh;
@@ -146,9 +147,9 @@ body {
 }
 
 .publication-authors {
-    font-family: 'Inter', sans-serif !important;
+    font-family: 'Manrope', sans-serif !important;
     font-weight: 500;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.35rem;
 }
 
 .publication-venue {
@@ -188,7 +189,7 @@ body {
     height: 2px;
     bottom: -2px;
     left: 0;
-    background: var(--gradient-accent);
+    background: #0072ce;
     transition: var(--transition);
 }
 
@@ -310,7 +311,7 @@ body {
 
 /* Section Titles */
 .title.is-3 {
-  font-family: 'Inter', sans-serif !important;
+  font-family: 'Manrope', sans-serif !important;
   font-weight: 700 !important;
   color: var(--text-primary);
   margin-bottom: 2rem !important;
@@ -326,7 +327,7 @@ body {
   transform: translateX(-50%);
   width: 60px;
   height: 3px;
-  background: var(--gradient-accent);
+  background: #0072ce;
   border-radius: 2px;
 }
 
@@ -378,7 +379,7 @@ pre {
 code {
   background: var(--background-accent) !important;
   color: var(--text-primary) !important;
-  font-family: 'SF Mono', 'Monaco', 'Cascadia Code', 'Roboto Mono', monospace !important;
+  font-family: 'Manrope', sans-serif !important;
 }
 
 /* BibTeX Section Improvements */
@@ -476,7 +477,7 @@ code {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Manrope', sans-serif;
 }
 
 .more-works-btn:hover {
@@ -751,3 +752,94 @@ a:focus {
 
 
 
+
+/* Experimental results */
+.experimental-results .content h3 { margin-top: 2.5rem; }
+.results-table { font-size: 0.9rem; white-space: nowrap; }
+.results-table caption { text-align: left; white-space: normal; color: var(--text-secondary); padding: 0.75rem 0; caption-side: bottom; }
+.results-table th, .results-table td { vertical-align: middle; }
+.results-table .ours { background: #edf6ff; font-weight: 700; }
+.results-table .ours th { color: #0072ce; }
+.result-figure { margin: 1.5rem auto 3rem; }
+.result-figure img { display: block; width: 100%; height: auto; }
+.result-figure figcaption { margin-top: 1rem; text-align: center; color: var(--text-secondary); }
+.efficiency-figure { max-width: 640px; }
+.attention-figure { max-width: 760px; }
+
+.data-efficiency-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 2rem;
+  margin: 1.5rem 0 3rem;
+}
+.data-efficiency-layout .efficiency-figure { margin: 0; min-width: 0; }
+.data-efficiency-layout .content { margin-bottom: 0; }
+@media screen and (max-width: 768px) {
+  .data-efficiency-layout { grid-template-columns: 1fr; gap: 1.5rem; }
+}
+
+/* Research motivation */
+.radar-motivation .motivation-step { margin-top: 2.5rem; }
+.radar-motivation .motivation-label {
+  color: #0072ce;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.65rem;
+}
+.radar-motivation .motivation-step h3 { margin-top: 0; }
+.physical-structure-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+  margin: 2.5rem 0;
+}
+.physical-structure-layout .result-figure,
+.physical-structure-layout .motivation-step { margin: 0; min-width: 0; }
+@media screen and (max-width: 768px) {
+  .physical-structure-layout { grid-template-columns: 1fr; }
+}
+
+/* Labeled dataset size comparison */
+.annotation-chart { margin: 2rem auto 2.5rem; max-width: 800px; }
+.annotation-chart-unit { color: var(--text-secondary); font-size: 0.85rem; margin: 0.35rem 0 1.5rem; }
+.annotation-chart-row { display: grid; grid-template-columns: 100px minmax(0, 1fr) 55px; gap: 1rem; align-items: center; margin: 1.25rem 0; }
+.annotation-chart-label { font-weight: 600; }
+.annotation-chart-label span { display: block; color: var(--text-secondary); font-size: 0.8rem; font-weight: 400; }
+.annotation-chart-track { background: var(--background-accent); border-radius: 4px; overflow: hidden; }
+.annotation-chart-bar { height: 32px; border-radius: 4px; }
+.lidar-bar { background: #94a3b8; }
+.radar-bar { background: #0072ce; }
+.annotation-chart figcaption { color: var(--text-secondary); font-size: 0.9rem; margin-top: 1.5rem; }
+@media screen and (max-width: 480px) {
+  .annotation-chart-row { grid-template-columns: 72px minmax(0, 1fr) 45px; gap: 0.6rem; }
+}
+
+/* Demo clip selector */
+.demo-intro { color: var(--text-secondary); margin-bottom: 2rem; }
+.demo-filter { border: 0; margin: 0 0 1.25rem; padding: 0; min-width: 0; }
+.demo-filter legend { font-weight: 700; margin-bottom: 0.65rem; }
+.demo-options { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.demo-option {
+  font: inherit;
+  font-size: 0.9rem;
+  background: white;
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
+  color: var(--text-primary);
+  padding: 0.45rem 0.95rem;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+.demo-option:hover { background: #edf6ff; border-color: #0072ce; }
+.demo-option[aria-pressed="true"] { background: #0072ce; border-color: #0072ce; color: white; }
+.demo-option:focus-visible { outline: 3px solid #0072ce; outline-offset: 3px; }
+.demo-summary { margin: 1.75rem 0 1rem; }
+.demo-metrics { display: flex; flex-wrap: wrap; gap: 1rem 2rem; margin-top: 0.75rem; }
+.demo-metrics dt { font-size: 0.75rem; color: var(--text-secondary); }
+.demo-metrics dd { margin: 0; font-weight: 600; }
+.demo-video { display: block; width: 100%; height: auto; background: #0f172a; border-radius: 8px; }
+.demo-note { font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.75rem; }

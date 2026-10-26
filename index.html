@@ -3,522 +3,252 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-  <!-- Primary Meta Tags -->
-  <!-- TODO: Replace with your paper title and author names -->
-  <meta name="title" content="PAPER_TITLE - AUTHOR_NAMES">
-  <!-- TODO: Write a compelling 150-160 character description of your research -->
-  <meta name="description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS">
-  <!-- TODO: Add 5-10 relevant keywords for your research area -->
-  <meta name="keywords" content="KEYWORD1, KEYWORD2, KEYWORD3, machine learning, computer vision, AI">
-  <!-- TODO: List all authors -->
-  <meta name="author" content="FIRST_AUTHOR_NAME, SECOND_AUTHOR_NAME">
-  <meta name="robots" content="index, follow">
-  <meta name="language" content="English">
-  
-  <!-- Open Graph / Facebook -->
+  <title>RadarMAE: Injecting Physical Inductive Biases into Masked Autoencoders for Advanced Radar Object Detection</title>
+  <meta name="description" content="RadarMAE incorporates axial tokenization and physical distribution-based reconstruction losses for radar representation learning and object detection.">
+  <meta name="author" content="EunChan Kim, JeongWan Shin, JaeHo Choi">
+  <meta name="citation_title" content="RadarMAE: Injecting Physical Inductive Biases into Masked Autoencoders for Advanced Radar Object Detection">
+  <meta name="citation_author" content="Kim, EunChan">
+  <meta name="citation_author" content="Shin, JeongWan">
+  <meta name="citation_author" content="Choi, JaeHo">
   <meta property="og:type" content="article">
-  <!-- TODO: Replace with your institution or lab name -->
-  <meta property="og:site_name" content="INSTITUTION_OR_LAB_NAME">
-  <!-- TODO: Same as paper title above -->
-  <meta property="og:title" content="PAPER_TITLE">
-  <!-- TODO: Same as description above -->
-  <meta property="og:description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS">
-  <!-- TODO: Replace with your actual website URL -->
-  <meta property="og:url" content="https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE">
-  <!-- TODO: Create a 1200x630px preview image and update path -->
-  <meta property="og:image" content="https://YOUR_DOMAIN.com/static/images/social_preview.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="PAPER_TITLE - Research Preview">
-  <meta property="article:published_time" content="2024-01-01T00:00:00.000Z">
-  <meta property="article:author" content="FIRST_AUTHOR_NAME">
-  <meta property="article:section" content="Research">
-  <meta property="article:tag" content="KEYWORD1">
-  <meta property="article:tag" content="KEYWORD2">
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
-  <!-- TODO: Replace with your lab/institution Twitter handle -->
-  <meta name="twitter:site" content="@YOUR_TWITTER_HANDLE">
-  <!-- TODO: Replace with first author's Twitter handle -->
-  <meta name="twitter:creator" content="@AUTHOR_TWITTER_HANDLE">
-  <!-- TODO: Same as paper title above -->
-  <meta name="twitter:title" content="PAPER_TITLE">
-  <!-- TODO: Same as description above -->
-  <meta name="twitter:description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS">
-  <!-- TODO: Same as social preview image above -->
-  <meta name="twitter:image" content="https://YOUR_DOMAIN.com/static/images/social_preview.png">
-  <meta name="twitter:image:alt" content="PAPER_TITLE - Research Preview">
-
-  <!-- Academic/Research Specific -->
-  <meta name="citation_title" content="PAPER_TITLE">
-  <meta name="citation_author" content="FIRST_AUTHOR_LAST, FIRST_AUTHOR_FIRST">
-  <meta name="citation_author" content="SECOND_AUTHOR_LAST, SECOND_AUTHOR_FIRST">
-  <meta name="citation_publication_date" content="2024">
-  <meta name="citation_conference_title" content="CONFERENCE_NAME">
-  <meta name="citation_pdf_url" content="https://YOUR_DOMAIN.com/static/pdfs/paper.pdf">
-  
-  <!-- Additional SEO -->
-  <meta name="theme-color" content="#2563eb">
-  <meta name="msapplication-TileColor" content="#2563eb">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  
-  <!-- Preconnect for performance -->
+  <meta property="og:title" content="RadarMAE: Injecting Physical Inductive Biases into Masked Autoencoders for Advanced Radar Object Detection">
+  <meta property="og:description" content="RadarMAE incorporates axial tokenization and physical distribution-based reconstruction losses for radar representation learning and object detection.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://ajax.googleapis.com">
-  <link rel="preconnect" href="https://documentcloud.adobe.com">
-  <link rel="preconnect" href="https://cdn.jsdelivr.net">
-
-
-  <!-- TODO: Replace with your paper title and authors -->
-  <title>PAPER_TITLE - AUTHOR_NAMES | Academic Research</title>
-  
-  <!-- Favicon and App Icons -->
-  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
-  <link rel="apple-touch-icon" href="static/images/favicon.ico">
-  
-  <!-- Critical CSS - Load synchronously -->
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="static/css/bulma.min.css">
   <link rel="stylesheet" href="static/css/index.css">
-  
-  <!-- Non-critical CSS - Load asynchronously -->
-  <link rel="preload" href="static/css/bulma-carousel.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="static/css/bulma-slider.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="static/css/fontawesome.all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  
-  <!-- Fallback for browsers that don't support preload -->
-  <noscript>
-    <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
-    <link rel="stylesheet" href="static/css/bulma-slider.min.css">
-    <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  </noscript>
-  
-  <!-- Fonts - Optimized loading -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  
-  <!-- Defer non-critical JavaScript -->
-  <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script defer src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
-  <script defer src="static/js/fontawesome.all.min.js"></script>
-  <script defer src="static/js/bulma-carousel.min.js"></script>
-  <script defer src="static/js/bulma-slider.min.js"></script>
-  <script defer src="static/js/index.js"></script>
-  
-  <!-- Structured Data for Academic Papers -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ScholarlyArticle",
-    "headline": "PAPER_TITLE",
-    "description": "BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS",
-    "author": [
-      {
-        "@type": "Person",
-        "name": "FIRST_AUTHOR_NAME",
-        "affiliation": {
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "headline": "RadarMAE: Injecting Physical Inductive Biases into Masked Autoencoders for Advanced Radar Object Detection",
+  "description": "RadarMAE incorporates axial tokenization and physical distribution-based reconstruction losses for radar representation learning and object detection.",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "EunChan Kim",
+      "email": "eunchan.kim@dgist.ac.kr",
+      "affiliation": [
+        {
           "@type": "Organization",
-          "name": "INSTITUTION_NAME"
+          "name": "DGIST"
         }
-      },
-      {
-        "@type": "Person",
-        "name": "SECOND_AUTHOR_NAME",
-        "affiliation": {
+      ]
+    },
+    {
+      "@type": "Person",
+      "name": "JeongWan Shin",
+      "email": "jwshin@dgist.ac.kr",
+      "affiliation": [
+        {
           "@type": "Organization",
-          "name": "INSTITUTION_NAME"
+          "name": "KAIST InnoCORE LLM"
         }
-      }
-    ],
-    "datePublished": "2024-01-01",
-    "publisher": {
-      "@type": "Organization",
-      "name": "CONFERENCE_OR_JOURNAL_NAME"
+      ]
     },
-    "url": "https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE",
-    "image": "https://YOUR_DOMAIN.com/static/images/social_preview.png",
-    "keywords": ["KEYWORD1", "KEYWORD2", "KEYWORD3", "machine learning", "computer vision"],
-    "abstract": "FULL_ABSTRACT_TEXT_HERE",
-    "citation": "BIBTEX_CITATION_HERE",
-    "isAccessibleForFree": true,
-    "license": "https://creativecommons.org/licenses/by/4.0/",
-    "mainEntity": {
-      "@type": "WebPage",
-      "@id": "https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE"
-    },
-    "about": [
-      {
-        "@type": "Thing",
-        "name": "RESEARCH_AREA_1"
-      },
-      {
-        "@type": "Thing", 
-        "name": "RESEARCH_AREA_2"
-      }
-    ]
-  }
+    {
+      "@type": "Person",
+      "name": "JaeHo Choi",
+      "email": "jhochoi@dgist.ac.kr",
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "DGIST"
+        },
+        {
+          "@type": "Organization",
+          "name": "KAIST InnoCORE LLM"
+        }
+      ]
+    }
+  ]
+}
   </script>
-  
-  <!-- Website/Organization Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "INSTITUTION_OR_LAB_NAME",
-    "url": "https://YOUR_INSTITUTION_WEBSITE.com",
-    "logo": "https://YOUR_DOMAIN.com/static/images/favicon.ico",
-    "sameAs": [
-      "https://twitter.com/YOUR_TWITTER_HANDLE",
-      "https://github.com/YOUR_GITHUB_USERNAME"
-    ]
-  }
-  </script>
+  <script defer src="static/js/demo.js"></script>
 </head>
 <body>
-
-
-  <!-- Scroll to Top Button -->
-  <button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">
-    <i class="fas fa-chevron-up"></i>
-  </button>
-
-  <!-- More Works Dropdown -->
-  <div class="more-works-container">
-    <button class="more-works-btn" onclick="toggleMoreWorks()" title="View More Works from Our Lab">
-      <i class="fas fa-flask"></i>
-      More Works
-      <i class="fas fa-chevron-down dropdown-arrow"></i>
-    </button>
-    <div class="more-works-dropdown" id="moreWorksDropdown">
-      <div class="dropdown-header">
-        <h4>More Works from Our Lab</h4>
-        <button class="close-btn" onclick="toggleMoreWorks()">
-          <i class="fas fa-times"></i>
-        </button>
-      </div>
-      <div class="works-list">
-        <!-- TODO: Replace with your lab's related works -->
-        <a href="https://arxiv.org/abs/PAPER_ID_1" class="work-item" target="_blank">
-          <div class="work-info">
-            <!-- TODO: Replace with actual paper title -->
-            <h5>Paper Title 1</h5>
-            <!-- TODO: Replace with brief description -->
-            <p>Brief description of the work and its main contribution.</p>
-            <!-- TODO: Replace with venue and year -->
-            <span class="work-venue">Conference/Journal 2024</span>
-          </div>
-          <i class="fas fa-external-link-alt"></i>
-        </a>
-        <!-- TODO: Add more related works or remove extra items -->
-        <a href="https://arxiv.org/abs/PAPER_ID_2" class="work-item" target="_blank">
-          <div class="work-info">
-            <h5>Paper Title 2</h5>
-            <p>Brief description of the work and its main contribution.</p>
-            <span class="work-venue">Conference/Journal 2023</span>
-          </div>
-          <i class="fas fa-external-link-alt"></i>
-        </a>
-        <a href="https://arxiv.org/abs/PAPER_ID_3" class="work-item" target="_blank">
-          <div class="work-info">
-            <h5>Paper Title 3</h5>
-            <p>Brief description of the work and its main contribution.</p>
-            <span class="work-venue">Conference/Journal 2023</span>
-          </div>
-          <i class="fas fa-external-link-alt"></i>
-        </a>
-      </div>
-    </div>
-  </div>
-
   <main id="main-content">
-  <section class="hero">
-    <div class="hero-body">
-      <div class="container is-max-desktop">
-        <div class="columns is-centered">
-          <div class="column has-text-centered">
-            <!-- TODO: Replace with your paper title -->
+    <section class="hero">
+      <div class="hero-body">
+        <div class="container is-max-desktop has-text-centered">
             <h1 class="title is-1 publication-title">
               RadarMAE: Injecting Physical Inductive Biases
               into Masked Autoencoders for Advanced Radar
               Object Detection
             </h1>
+            <p class="is-size-4 has-text-weight-semibold" style="margin-bottom: 0.35rem;">NeurIPS 2026</p>
             <div class="is-size-5 publication-authors">
-              <!-- TODO: Replace with your paper authors and their personal links -->
-              <span class="author-block">
-                <a href="FIRST AUTHOR PERSONAL LINK" target="_blank">First Author</a><sup>*</sup>,</span>
-                <span class="author-block">
-                  <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">Second Author</a><sup>*</sup>,</span>
-                  <span class="author-block">
-                    <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Third Author</a>
-                  </span>
-                  </div>
-
-                  <div class="is-size-5 publication-authors">
-                    <!-- TODO: Replace with your institution and conference/journal info -->
-                    <span class="author-block">Institution Name<br>Conference name and year</span>
-                    <!-- TODO: Remove this line if no equal contribution -->
-                    <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span>
-                  </div>
-
-                  <div class="column has-text-centered">
-                    <div class="publication-links">
-                         <!-- TODO: Update with your arXiv paper ID -->
-                      <span class="link-block">
-                        <a href="https://arxiv.org/pdf/<ARXIV PAPER ID>.pdf" target="_blank"
-                        class="external-link button is-normal is-rounded is-dark">
-                        <span class="icon">
-                          <i class="fas fa-file-pdf"></i>
-                        </span>
-                        <span>Paper</span>
-                      </a>
-                    </span>
-
-                    <!-- TODO: Add your supplementary material PDF or remove this section -->
-                    <span class="link-block">
-                      <a href="static/pdfs/supplementary_material.pdf" target="_blank"
-                      class="external-link button is-normal is-rounded is-dark">
-                      <span class="icon">
-                        <i class="fas fa-file-pdf"></i>
-                      </span>
-                      <span>Supplementary</span>
-                    </a>
-                  </span>
-
-                  <!-- TODO: Replace with your GitHub repository URL -->
-                  <span class="link-block">
-                    <a href="https://github.com/YOUR REPO HERE" target="_blank"
-                    class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="fab fa-github"></i>
-                    </span>
-                    <span>Code</span>
-                  </a>
-                </span>
-
-                <!-- TODO: Update with your arXiv paper ID -->
-                <span class="link-block">
-                  <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"
-                  class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                    <i class="ai ai-arxiv"></i>
-                  </span>
-                  <span>arXiv</span>
-                </a>
-              </span>
+              <span class="author-block"><a href="https://www.linkedin.com/in/eunchankim-dgist" target="_blank" rel="noopener noreferrer">EunChan Kim</a><sup>1</sup>,</span>
+              <span class="author-block"><a href="https://jeongwan-shin.github.io/" target="_blank" rel="noopener noreferrer">JeongWan Shin</a><sup>2</sup>,</span>
+              <span class="author-block"><a href="https://dgist-irslab.github.io/#pi" target="_blank" rel="noopener noreferrer">JaeHo Choi</a><sup>1,2</sup></span>
             </div>
-          </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup>DGIST</span>
+              <span class="author-block"><sup>2</sup>KAIST InnoCORE LLM</span>
+            </div>
+
+            <div class="publication-links" style="display: flex; justify-content: center; gap: 0.75rem; margin-top: 1rem;">
+              <a class="button is-normal is-rounded is-dark" href="static/pdfs/RadarMAE.pdf" target="_blank" rel="noopener">
+                <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M8 13h8M8 17h6"/></svg></span>
+                <span>Paper</span>
+              </a>
+              <a class="button is-normal is-rounded is-dark" href="https://github.com/GracenPraise/RadarMAE" target="_blank" rel="noopener noreferrer">
+                <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.4-4-1.4-.5-1.4-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0C17.3 5.1 18.3 5.4 18.3 5.4c.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.2c0 .3.2.7.8.6A12 12 0 0 0 12 .3Z"/></svg></span>
+                <span>Code</span>
+              </a>
+            </div>
+
         </div>
       </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- Teaser video-->
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <!-- TODO: Replace with your teaser video -->
-      <video poster="" id="tree" autoplay controls muted loop height="100%" preload="metadata">
-        <!-- TODO: Add your video file path here -->
-        <source src="static/videos/banner_video.mp4" type="video/mp4">
-      </video>
-      <!-- TODO: Replace with your video description -->
-      <h2 class="subtitle has-text-centered">
-        Aliquam vitae elit ullamcorper tellus egestas pellentesque. Ut lacus tellus, maximus vel lectus at, placerat pretium mi. Maecenas dignissim tincidunt vestibulum. Sed consequat hendrerit nisl ut maximus. 
-      </h2>
-    </div>
-  </div>
-</section>
-<!-- End teaser video -->
-
-<!-- Paper abstract -->
-<section class="section hero is-light">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <!-- TODO: Replace with your paper abstract -->
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper tellus sed ante aliquam tempus. Etiam porttitor urna feugiat nibh elementum, et tempor dolor mattis. Donec accumsan enim augue, a vulputate nisi sodales sit amet. Proin bibendum ex eget mauris cursus euismod nec et nibh. Maecenas ac gravida ante, nec cursus dui. Vivamus purus nibh, placerat ac purus eget, sagittis vestibulum metus. Sed vestibulum bibendum lectus gravida commodo. Pellentesque auctor leo vitae sagittis suscipit.
-          </p>
-        </div>
+    </section>
+    <section class="section" aria-label="RadarMAE pipeline" style="padding-top: 0;">
+      <div class="container is-max-desktop">
+        <h2 class="title is-3 has-text-centered">Pipeline</h2>
+        <figure>
+          <a href="Pretrain_Pipeline_v8.pdf" target="_blank" rel="noopener" aria-label="Open the RadarMAE pipeline PDF">
+            <img src="static/images/pretrain-pipeline.webp" width="1191" height="536"
+                 alt="RadarMAE pre-training pipeline: axial tokenization of range-azimuth heatmaps, masked autoencoding, and physical distribution-based reconstruction losses."
+                 fetchpriority="high" style="display: block; width: 100%; height: auto;">
+          </a>
+          <figcaption class="content has-text-centered" style="margin-top: 1.5rem;">
+            <strong>RadarMAE pre-training pipeline.</strong> Axial tokenization preserves the structure of range-azimuth heatmaps,
+            while physical distribution-based losses capture range multipath and azimuth sidelobe signatures.
+          </figcaption>
+        </figure>
       </div>
-    </div>
-  </div>
-</section>
-<!-- End paper abstract -->
-
-
-<!-- Image carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-       <div class="item">
-        <!-- TODO: Replace with your research result images -->
-        <img src="static/images/carousel1.jpg" alt="First research result visualization" loading="lazy"/>
-        <!-- TODO: Replace with description of this result -->
-        <h2 class="subtitle has-text-centered">
-          First image description.
-        </h2>
-      </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel2.jpg" alt="Second research result visualization" loading="lazy"/>
-        <h2 class="subtitle has-text-centered">
-          Second image description.
-        </h2>
-      </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel3.jpg" alt="Third research result visualization" loading="lazy"/>
-        <h2 class="subtitle has-text-centered">
-         Third image description.
-       </h2>
-     </div>
-     <div class="item">
-      <!-- Your image here -->
-      <img src="static/images/carousel4.jpg" alt="Fourth research result visualization" loading="lazy"/>
-      <h2 class="subtitle has-text-centered">
-        Fourth image description.
-      </h2>
-    </div>
-  </div>
-</div>
-</div>
-</section>
-<!-- End image carousel -->
-
-
-
-
-<!-- Youtube video -->
-<section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <!-- Paper video. -->
-      <h2 class="title is-3">Video Presentation</h2>
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          
-          <div class="publication-video">
-            <!-- TODO: Replace with your YouTube video ID -->
-            <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- End youtube video -->
-
-
-<!-- Video carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title is-3">Another Carousel</h2>
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-video1">
-          <!-- TODO: Add poster image for better preview -->
-          <video poster="" id="video1" controls muted loop height="100%" preload="metadata">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel1.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video2">
-          <!-- TODO: Add poster image for better preview -->
-          <video poster="" id="video2" controls muted loop height="100%" preload="metadata">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel2.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video3">
-          <!-- TODO: Add poster image for better preview -->
-          <video poster="" id="video3" controls muted loop height="100%" preload="metadata">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel3.mp4" type="video/mp4">
-          </video>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- End video carousel -->
-
-
-
-
-
-
-<!-- Paper poster -->
-<section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title">Poster</h2>
-
-      <!-- TODO: Replace with your poster PDF -->
-      <iframe  src="static/pdfs/sample.pdf" width="100%" height="550">
-          </iframe>
-        
-      </div>
-    </div>
-  </section>
-<!--End paper poster -->
-
-
-
-<!--BibTex citation -->
-  <section class="section" id="BibTeX">
-    <div class="container is-max-desktop content">
-      <div class="bibtex-header">
-        <h2 class="title">BibTeX</h2>
-        <button class="copy-bibtex-btn" onclick="copyBibTeX()" title="Copy BibTeX to clipboard">
-          <i class="fas fa-copy"></i>
-          <span class="copy-text">Copy</span>
-        </button>
-      </div>
-      <pre id="bibtex-code"><code>@article{YourPaperKey2024,
-  title={Your Paper Title Here},
-  author={First Author and Second Author and Third Author},
-  journal={Conference/Journal Name},
-  year={2024},
-  url={https://your-domain.com/your-project-page}
-}</code></pre>
-    </div>
-</section>
-<!--End BibTex citation -->
-
-
-  <footer class="footer">
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-8">
+    </section>
+    <section class="section" aria-labelledby="motivation-heading">
+      <div class="container is-max-desktop radar-motivation">
+        <h2 id="motivation-heading" class="title is-3 has-text-centered">Why RadarMAE?</h2>
         <div class="content">
+          <h3>Why Self-Supervised Learning for Radar?</h3>
+          <p>Radar supports perception in adverse weather, but learning from radar heatmaps requires costly annotations. Multipath reflections, sparse returns, and sidelobe clutter obscure object boundaries, making heatmaps difficult to interpret and label. This limits the amount of high-quality labeled data available for supervised learning.</p>
+        </div>
+        <figure class="annotation-chart" aria-labelledby="annotation-chart-title annotation-chart-caption">
+          <h3 id="annotation-chart-title" class="has-text-weight-semibold">The Labeled Data Gap</h3>
+          <p class="annotation-chart-unit">Labeled frames · selected dataset comparison</p>
+          <div class="annotation-chart-row">
+            <div class="annotation-chart-label">LiDAR <span>Waymo</span></div>
+            <div class="annotation-chart-track"><div class="annotation-chart-bar lidar-bar" style="width: 100%;"></div></div>
+            <strong>230k</strong>
+          </div>
+          <div class="annotation-chart-row">
+            <div class="annotation-chart-label">Radar <span>K-Radar</span></div>
+            <div class="annotation-chart-track"><div class="annotation-chart-bar radar-bar" style="width: 15.2174%;"></div></div>
+            <strong>35k</strong>
+          </div>
+          <figcaption id="annotation-chart-caption">K-Radar provides approximately 15% as many labeled frames as Waymo in this comparison, motivating learning from unlabeled radar data.</figcaption>
+        </figure>
+        <div class="content">
+          <p><strong>Self-supervised learning makes use of unlabeled radar data.</strong> By reconstructing masked regions, a masked autoencoder can learn local spatial structure before fine-tuning for object detection. However, radar signals call for a design that accounts for their physical properties.</p>
+        </div>
+        <div class="motivation-step content">
 
-          <p>
-            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
-            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
-          </p>
+          <h3>Radar is fundamentally different from natural images.</h3>
+          <p>RGB images primarily describe the visual appearance of a scene. Radar heatmaps instead represent processed reflections, where a target produces spatial patterns shaped by signal propagation and processing.</p>
+        </div>
+        <div class="motivation-step content">
 
+          <h3>Radar responses exhibit mainlobes and sidelobes.</h3>
+          <p>Unlike the local visual appearance captured by square patches in an RGB image, a radar target can produce an extended response across range and azimuth. Fourier processing over a finite observation window can spread a point-target response into a sinc-like mainlobe and sidelobes, rather than an ideal isolated point. Range and azimuth also have different resolutions and physical meanings, while multipath can extend reflections along range.</p>
+        </div>
+        <figure class="result-figure">
+          <a href="iamge_radar.png" target="_blank" rel="noopener" aria-label="Open image and radar comparison">
+            <img src="static/images/image-radar-comparison.webp" width="1046" height="456" alt="Square patches over a camera image compared with a radar range-azimuth heatmap and sinc-like range and azimuth profiles showing mainlobes and sidelobes." loading="lazy">
+          </a>
+          <figcaption>Image patches capture local visual appearance, while radar responses extend across range and azimuth with sinc-like mainlobes and sidelobes.</figcaption>
+        </figure>
+        <div class="motivation-step content">
+
+          <h3>Can image-oriented MAEs fully exploit radar-specific structures?</h3>
+          <p>Conventional square patches do not explicitly account for the distinct range–azimuth axes and can fragment extended response patterns. A standard pixel-wise MSE objective can also smooth out multipath tails and sidelobe peaks that carry useful information about the scene.</p>
+        </div>
+        <div class="motivation-step content">
+
+          <h3>Physics-aware masked radar representation learning.</h3>
+          <p>RadarMAE combines axial tokenization with axis-specific physical distribution losses. By preserving continuous response structures and modeling range multipath and azimuth sidelobes, it learns representations from unlabeled radar heatmaps that transfer to object detection.</p>
         </div>
       </div>
+    </section>
+    <section class="section" aria-labelledby="demo-heading">
+      <div class="container is-max-desktop">
+        <h2 id="demo-heading" class="title is-3 has-text-centered">Demo</h2>
+        <p class="has-text-centered demo-intro">Explore detection examples across eight road types and seven weather conditions.</p>
+        <div class="demo-browser">
+          <fieldset class="demo-filter"><legend>Weather</legend><div class="demo-options">
+            <button type="button" class="demo-option" aria-pressed="false" aria-controls="demo-video" data-src="static/videos/weather_normal_seq14.mp4" data-title="Weather · Normal" data-sequence="14" data-road="Urban" data-time="Day" data-weather="Normal">Normal</button>
+            <button type="button" class="demo-option" aria-pressed="false" aria-controls="demo-video" data-src="static/videos/weather_overcast_seq22.mp4" data-title="Weather · Overcast" data-sequence="22" data-road="Urban" data-time="Night" data-weather="Overcast">Overcast</button>
+            <button type="button" class="demo-option" aria-pressed="false" aria-controls="demo-video" data-src="static/videos/weather_fog_seq45.mp4" data-title="Weather · Fog" data-sequence="45" data-road="Shoulder" data-time="Day" data-weather="Fog">Fog</button>
+            <button type="button" class="demo-option" aria-pressed="false" aria-controls="demo-video" data-src="static/videos/weather_rain_seq23.mp4" data-title="Weather · Rain" data-sequence="23" data-road="Urban" data-time="Night" data-weather="Rain">Rain</button>
+            <button type="button" class="demo-option" aria-pressed="false" aria-controls="demo-video" data-src="static/videos/weather_sleet_seq53.mp4" data-title="Weather · Sleet" data-sequence="53" data-road="Highway" data-time="Day" data-weather="Sleet">Sleet</button>
+            <button type="button" class="demo-option" aria-pressed="false" aria-controls="demo-video" data-src="static/videos/weather_lightsnow_seq43.mp4" data-title="Weather · Light snow" data-sequence="43" data-road="Urban" data-time="Day" data-weather="Light snow">Light snow</button>
+            <button type="button" class="demo-option" aria-pressed="false" aria-controls="demo-video" data-src="static/videos/weather_heavysnow_seq54.mp4" data-title="Weather · Heavy snow" data-sequence="54" data-road="Urban" data-time="Day" data-weather="Heavy snow">Heavy snow</button>
+          </div></fieldset>
+          <fieldset class="demo-filter"><legend>Road</legend><div class="demo-options">
+            <button type="button" class="demo-option" aria-pressed="true" aria-controls="demo-video" data-src="static/videos/road_urban_seq54.mp4" data-title="Road · Urban" data-sequence="54" data-road="Urban" data-time="Day" data-weather="Heavy snow">Urban</button>
+            <button type="button" class="demo-option" aria-pressed="false" aria-controls="demo-video" data-src="static/videos/road_highway_seq53.mp4" data-title="Road · Highway" data-sequence="53" data-road="Highway" data-time="Day" data-weather="Sleet">Highway</button>
+            <button type="button" class="demo-option" aria-pressed="false" aria-controls="demo-video" data-src="static/videos/road_countryside_seq33.mp4" data-title="Road · Countryside" data-sequence="33" data-road="Countryside" data-time="Day" data-weather="Rain">Countryside</button>
+            <button type="button" class="demo-option" aria-pressed="false" aria-controls="demo-video" data-src="static/videos/road_alleyway_seq21.mp4" data-title="Road · Alleyway" data-sequence="21" data-road="Alleyway" data-time="Night" data-weather="Rain">Alleyway</button>
+            <button type="button" class="demo-option" aria-pressed="false" aria-controls="demo-video" data-src="static/videos/road_parkinglots_seq30.mp4" data-title="Road · Parking lots" data-sequence="30" data-road="Parking lots" data-time="Day" data-weather="Sleet">Parking lots</button>
+            <button type="button" class="demo-option" aria-pressed="false" aria-controls="demo-video" data-src="static/videos/road_shoulder_seq45.mp4" data-title="Road · Shoulder" data-sequence="45" data-road="Shoulder" data-time="Day" data-weather="Fog">Shoulder</button>
+            <button type="button" class="demo-option" aria-pressed="false" aria-controls="demo-video" data-src="static/videos/road_mountain_seq40.mp4" data-title="Road · Mountain" data-sequence="40" data-road="Mountain" data-time="Day" data-weather="Fog">Mountain</button>
+            <button type="button" class="demo-option" aria-pressed="false" aria-controls="demo-video" data-src="static/videos/road_university_seq16.mp4" data-title="Road · University" data-sequence="16" data-road="University" data-time="Day" data-weather="Normal">University</button>
+          </div></fieldset>
+          <div class="demo-summary" aria-live="polite" aria-atomic="true">
+            <h3 id="demo-clip-title" class="is-size-5 has-text-weight-semibold">Road · Urban</h3>
+            <dl class="demo-metrics">
+              <div><dt>Sequence</dt><dd id="demo-sequence">54</dd></div>
+              <div><dt>Road</dt><dd id="demo-road">Urban</dd></div>
+              <div><dt>Time</dt><dd id="demo-time">Day</dd></div>
+              <div><dt>Weather</dt><dd id="demo-weather">Heavy snow</dd></div>
+
+
+            </dl>
+          </div>
+          <video id="demo-video" class="demo-video" controls playsinline muted loop preload="metadata" aria-label="RadarMAE detection demo: Road · Urban">
+            <source src="static/videos/road_urban_seq54.mp4" type="video/mp4">
+            Your browser does not support embedded video. <a href="static/videos/road_urban_seq54.mp4" id="demo-video-fallback">Download the video</a>.
+          </video>
+          <p id="demo-video-error" class="demo-note" role="status" hidden>Unable to load this video. <a id="demo-video-download" href="static/videos/road_urban_seq54.mp4">Open the video directly</a>.</p>
+        </div>
+      </div>
+    </section>
+    <section class="section" aria-labelledby="results-heading">
+      <div class="container is-max-desktop experimental-results">
+        <h2 id="results-heading" class="title is-3 has-text-centered">Experimental Results</h2>
+        <div class="content">
+          <h3>Radar Object Detection</h3>
+          <p>Using only single-frame range-azimuth heatmaps, RadarMAE achieves <strong>64.17% BEV AP@0.3</strong> on K-Radar-20, improving over EchoFusion by <strong>9.72 percentage points</strong> and standard MAE by <strong>7.29 percentage points</strong>.</p>
+        </div>
+<div class="table-container"><table class="table is-fullwidth results-table"><caption>K-Radar-20 detection results. AP is reported in percent for the sedan class; * denotes an adapted backbone. Higher is better.</caption><thead><tr><th scope="col">Method</th><th scope="col">Backbone</th><th scope="col">SSL</th><th scope="col">Input</th><th scope="col">BEV AP@0.3 ↑</th><th scope="col">BEV AP@0.5 ↑</th><th scope="col">3D AP@0.3 ↑</th><th scope="col">3D AP@0.5 ↑</th></tr></thead><tbody><tr><th scope="row">EchoFusion</th><td>ResNet-50*</td><td aria-label="No">✗</td><td>2D (RA)</td><td>54.45</td><td>42.28</td><td>51.75</td><td>24.65</td></tr><tr><th scope="row">RTNH</th><td>3D-SCB</td><td aria-label="No">✗</td><td>3D (RAE)</td><td>61.38</td><td>46.47</td><td>53.05</td><td>17.98</td></tr><tr><th scope="row">ViT-B</th><td>ViT-B</td><td aria-label="No">✗</td><td>2D (RA)</td><td>60.77</td><td>45.30</td><td>55.24</td><td>27.45</td></tr><tr><th scope="row">MAE</th><td>ViT-B</td><td aria-label="Yes">✓</td><td>2D (RA)</td><td>56.88</td><td>42.86</td><td>52.97</td><td>26.47</td></tr><tr class="ours"><th scope="row">RadarMAE</th><td>ViT-B*</td><td aria-label="Yes">✓</td><td>2D (RA)</td><td>64.17</td><td>48.44</td><td>58.85</td><td>30.93</td></tr></tbody></table></div>
+        <div class="content"><h3>Data Efficiency</h3></div>
+        <div class="data-efficiency-layout">
+          <figure class="result-figure efficiency-figure">
+            <a href="figure_train_ratio_v4.pdf" target="_blank" rel="noopener" aria-label="Open data efficiency figure PDF">
+              <img src="static/images/data-efficiency.webp" width="2200" height="1572" alt="BEV AP at IoU 0.3 versus labeled training-data ratio for RadarMAE, scratch, and MAE." loading="lazy">
+            </a>
+          </figure>
+          <div class="content">
+            <p>RadarMAE outperforms both training from scratch and standard MAE across all evaluated labeled training-data ratios, from 30% to 100%.</p>
+            <p>By incorporating radar-specific physical priors, RadarMAE maintains a consistent advantage even as the amount of labeled training data decreases.</p>
+          </div>
+        </div>
+        <div class="content"><h3>Axial Tokenization</h3><p>Axial tokenization achieves higher detection accuracy with 142 tokens and 30.14 total GFLOPs, compared with 448 tokens and 75.47 total GFLOPs for 8 × 8 patches.</p></div>
+<div class="table-container"><table class="table is-fullwidth results-table"><caption>Tokenization ablation with identical MSE loss, random masking, and 500 pre-training epochs. GFLOPs are measured during pre-training.</caption><thead><tr><th scope="col">Tokenization</th><th scope="col">Tokens</th><th scope="col">BEV AP@0.3 ↑</th><th scope="col">Encoder GFLOPs ↓</th><th scope="col">Total GFLOPs ↓</th></tr></thead><tbody><tr><th scope="row">16 × 16</th><td>112</td><td>49.46</td><td>17.67</td><td>23.97</td></tr><tr><th scope="row">8 × 8</th><td>448</td><td>54.91</td><td>48.51</td><td>75.47</td></tr><tr><th scope="row">4 × 16</th><td>448</td><td>55.23</td><td>50.04</td><td>77.93</td></tr><tr><th scope="row">16 × 4</th><td>448</td><td>54.59</td><td>47.65</td><td>74.15</td></tr><tr class="ours"><th scope="row">Axial</th><td>142</td><td>57.46</td><td>22.22</td><td>30.14</td></tr></tbody></table></div>
+
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="container has-text-centered">
+      <p>Website template adapted from the
+        <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank" rel="noopener">Academic Project Page Template</a>
+        and <a href="https://nerfies.github.io" target="_blank" rel="noopener">Nerfies</a>.
+        Licensed under <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.
+      </p>
     </div>
-  </div>
-</footer>
-
-<!-- Statcounter tracking code -->
-  
-<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
-
-    <!-- End of Statcounter Code -->
-
-  </body>
-  </html>
+  </footer>
+</body>
+</html>
